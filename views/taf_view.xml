@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- LE Menu de Stage  -->
+ <menuitem id="root_menu"
+    name="Stage"/>
+
+<!-- L'Option du Menu pour ouvrir la liste des stagiaire  -->
+ <menuitem id="menu_taf"
+   name="Tâches"
+   parent="root_menu"
+   action="action_taf"
+ />
+
+<!-- Action  pour ouvrir la liste des stagiaires -->
+ <act_window id="action_taf"
+   name="Gestion des tâches"
+   res_model="taf"
+   view_mode="tree,form"
+ />
+
+<record id="taf_view_tree" model="ir.ui.view">
+
+   <field name="name">Liste des tâches</field>
+    <field name="model">taf</field>
+    <field name="arch" type="xml">
+
+    <tree>
+        <field name="name"/>
+    </tree>
+</field>
+</record>
+
+<record id="taf_view_form" model="ir.ui.view">
+    <field name="name">Création d'une tâche</field>
+    <field name="model">taf</field>
+    <field name="arch" type="xml">
+
+    <form>
+        <sheet>
+            <group>
+                <field name="name" placeholder="Nom de la tâche" />
+                <!-- <field name='stagiaires'/> -->
+            </group>
+
+        </sheet>
+    </form>
+    </field>
+</record>
+
+     <record id="taf_view_search" model="ir.ui.view">
+        <field name="name">taf.search</field>
+        <field name="model">taf</field>
+        <field name="arch" type="xml">
+            <search string="Tâche">
+                <field name="name"/>
+              <!--   <field name="stagiaires"/> -->
+                <separator/>
+             <!--    <group expand="1" string="Grouper par">
+                    <filter string="Stagiaire" name="stagiaires" context="{'group_by' :'stagiaires'}"/>
+                </group> -->
+           </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_responsable_user,ResponsableUser,model_responsable,stage_group_user,1,0,0,0
+access_responsable_manager,ResponsableManager,model_responsable,stage_group_manager,1,1,1,1
+access_stagiaire_user,StagiaireUser,model_stagiaire,stage_group_user,1,0,0,0
+access_stagiaire_manager,StagiaireManager,model_stagiaire,stage_group_manager,1,1,1,1
+access_taf_user,TafUser,model_taf,stage_group_user,1,0,0,0
+access_taf_manager,TafManager,model_taf,stage_group_manager,1,1,1,1

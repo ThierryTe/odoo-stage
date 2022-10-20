@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- LE Menu de Stage  -->
+ <menuitem id="root_menu"
+    name="Stage"/>
+
+<!-- L'Option du Menu pour ouvrir la liste des stagiaire  -->
+ <menuitem id="menu_stagiaire"
+   name="Stagiaires"
+   parent="root_menu"
+    action="action_stagiaire"
+ />
+
+<!-- Action  pour ouvrir la liste des stagiaires -->
+ <act_window id="action_stagiaire"
+   name="Gestion des Stagiaires"
+   res_model="stagiaire"
+   view_mode="tree,form"
+ />
+
+<record id="stagiaire_view_tree" model="ir.ui.view">
+
+   <field name="name">Liste des stagiaire</field>
+    <field name="model">stagiaire</field>
+    <field name="arch" type="xml">
+
+    <tree>
+        <field name="name"/>
+        <field name="prenom"/>
+        <field name="x_responsable_id" />
+        <field name="theme"/>
+        <field name="dateDebut"/>
+        <field name="dateFin"/>
+        <field name="taches"/>
+    </tree>
+</field>
+</record>
+
+<record id="stagiaire_view_form" model="ir.ui.view">
+    <field name="name">Création d'un stagiaire</field>
+    <field name="model">stagiaire</field>
+    <field name="arch" type="xml">
+
+    <form>
+        <sheet>
+            <group>
+                <field name="name" placeholder="Nom du stagiaire" />
+                <field name="prenom" placeholder="Prenom du stagiaire" />
+                <field name='x_responsable_id' />
+            </group>
+
+            <group>
+                <field name="theme" placeholder="Thème du stage" />
+                <field name="dateDebut" placeholder="Date de dédut de stage" />
+                <field name="dateFin" placeholder="Date de fin de stage" />
+            </group>
+
+            <group>
+            <field name="taches" widget="many2many_tags"/>
+            </group>
+
+        </sheet>
+    </form>
+    </field>
+</record>
+
+     <record id="stagiaire_view_search" model="ir.ui.view">
+        <field name="name">stagiaire.search</field>
+        <field name="model">stagiaire</field>
+        <field name="arch" type="xml">
+            <search string="Stagiaire">
+                <field name="name"/>
+                <field name="prenom"/>
+                <field name="x_responsable_id"/>
+                <separator/>
+                <group expand="1" string="Grouper par">
+                    <filter string="Responsble Stage" name="x_responsable_id" context="{'group_by' :'x_responsable_id'}"/>
+                </group>
+           </search>
+        </field>
+    </record>
+</odoo>

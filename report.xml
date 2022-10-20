@@ -1,0 +1,54 @@
+
+<odoo>
+
+<record id="action_stagiaire_id_card" model="ir.actions.report">
+
+   <field name="name">Liste des stagiaires</field>
+
+   <field name="model">stagiaire</field>
+
+   <field name ="report_type">qweb-pdf</field>
+
+   <field name="report_name">report_stagiaire_id_card</field>
+
+   <field name="report_file">report_stagiaire_id_card</field>
+
+   <field name="print_report_name"> 'Liste des stagiaires - %s' % (object.name)</field>
+
+   <field name="binding_model_id" ref="model_stagiaire"/>
+</record>
+
+<template id="report_stagiaire_id_card">
+    <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+             <h2>Liste des stagiaires</h2>
+            <div class="page">
+
+                <div class="table-responsive">
+        <table class=" table">
+            <thead>
+                <tr>
+                <th scope="col">Nom</th>
+                <th scope="col"> Prenom</th>
+                <th scope="col"> Theme</th>
+                    <th scope="col">Responsable</th>
+            </tr>
+            </thead>
+            <tbody>
+            <t t-foreach="docs" t-as="o">
+                <tr>
+                    <td> <span t-field="o.name"/></td>
+                    <td> <span t-field="o.prenom"/></td>
+                    <td> <span t-field="o.theme"/></td>
+                    <td> <span t-field="o.x_responsable_id"/></td>
+                </tr>
+            </t>
+              </tbody>
+        </table>
+   </div>
+            </div>
+        </t>
+    </t>
+</template>
+
+</odoo>

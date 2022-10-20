@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- LE Menu de Stage  -->
+ <menuitem id="root_menu"
+    name="Stage"/>
+
+<!-- L'Option du Menu pour ouvrir la liste des Responsables  -->
+ <menuitem id="menu_responsable"
+   name="Responsables"
+   parent="root_menu"
+   action="action_responsable"
+ />
+
+ <!-- Action pour ouvrir la liste des responsables  -->
+ <act_window id="action_responsable"
+   name="Gestion des Responsables"
+   res_model="responsable"
+   view_mode="tree,form"
+ />
+
+<record id="responsable_view_tree" model="ir.ui.view">
+
+    <field name="name">Liste des responsables de stage</field>
+    <field name="model" >responsable</field>
+    <field name="arch" type="xml">
+
+    <tree>
+        <field name="nom"/>
+        <field name="prenom"/>
+        <field name="departement"/>
+        <field name="telephone"/>
+        <field name="x_stagiaire_ids"/>  
+    </tree>
+          
+</field>
+</record>
+
+<record id="responsable_view_form" model="ir.ui.view">
+    <field name="name">Création d'un responsable de stage</field>
+    <field name="model" >responsable</field>
+    <field name="arch" type="xml">
+
+    <form>
+        <sheet>
+            <group>
+                <field name="nom" placeholder="Nom du responsable"/>
+                <field name="prenom" placeholder="Prenom du responsable"/>
+                <field name="departement" placeholder="departement du responsable"/>
+                <field name="telephone" placeholder="telephone du responsable"/>
+            </group>
+        </sheet>
+    </form>
+    </field>
+</record>
+
+
+</odoo>

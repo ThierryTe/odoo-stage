@@ -1,0 +1,1 @@
+from . import stagiaire_card
