@@ -40,7 +40,6 @@
         <sheet>
             <group>
                 <field name="name" placeholder="Nom de la tâche" />
-                <!-- <field name='stagiaires'/> -->
             </group>
 
         </sheet>
@@ -54,7 +53,6 @@
         <field name="arch" type="xml">
             <search string="Tâche">
                 <field name="name"/>
-              <!--   <field name="stagiaires"/> -->
                 <separator/>
              <!--    <group expand="1" string="Grouper par">
                     <filter string="Stagiaire" name="stagiaires" context="{'group_by' :'stagiaires'}"/>

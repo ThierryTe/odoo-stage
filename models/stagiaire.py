@@ -11,4 +11,10 @@ class Stagiaire(models.Model):
     dateDebut=fields.Date("date de début de stage", required=True)
     dateFin=fields.Date("date de fin de stage", required=True)
     x_responsable_id=fields.Many2one("responsable",string="Responsable")
-    taches = fields.Many2many('taf','stagiaire_taf', 'stagiaire_id', 'taf_id', string="Tâches")
+    taches_ids = fields.Many2many('taf','stagiaire_taf', 'stagiaire_id', 'taf_id', string="Tâches")
+    image = fields.Binary()
+    progress_state = fields.Selection([('attente', 'En attente'),('valide', 'Valider')], string='State',default='attente')
+    
+    def set_valide(self):       
+        self.write({'progress_state': 'valide'})  
+        

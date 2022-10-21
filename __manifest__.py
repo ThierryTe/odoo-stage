@@ -6,6 +6,7 @@
 
 'depends': ['base'],
 'application': True,
+
 'data':['security/stage_security.xml',
         'security/ir.model.access.csv',
         'views/stage_responsable_view.xml',

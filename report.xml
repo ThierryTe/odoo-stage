@@ -1,7 +1,7 @@
 
 <odoo>
 
-<record id="action_stagiaire_id_card" model="ir.actions.report">
+<record id="report_stagiaire_action" model="ir.actions.report">
 
    <field name="name">Liste des stagiaires</field>
 
@@ -9,9 +9,9 @@
 
    <field name ="report_type">qweb-pdf</field>
 
-   <field name="report_name">report_stagiaire_id_card</field>
+   <field name="report_name">stage_master.report_stagiaire_id_card</field>
 
-   <field name="report_file">report_stagiaire_id_card</field>
+   <field name="report_file">stage_master.report_stagiaire_id_card</field>
 
    <field name="print_report_name"> 'Liste des stagiaires - %s' % (object.name)</field>
 
@@ -32,6 +32,7 @@
                 <th scope="col"> Prenom</th>
                 <th scope="col"> Theme</th>
                     <th scope="col">Responsable</th>
+                     <th scope="col">Tâches</th>
             </tr>
             </thead>
             <tbody>
@@ -41,6 +42,7 @@
                     <td> <span t-field="o.prenom"/></td>
                     <td> <span t-field="o.theme"/></td>
                     <td> <span t-field="o.x_responsable_id"/></td>
+                    <td> <span t-field="o.taches_ids"/></td>
                 </tr>
             </t>
               </tbody>
@@ -52,3 +54,5 @@
 </template>
 
 </odoo>
+
+
