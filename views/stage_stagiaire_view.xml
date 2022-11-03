@@ -45,8 +45,8 @@
     <form>
     <header>                                            
         <field name="progress_state" widget="statusbar" clickable="True"></field> 
-        <button class="btn-danger"  string="Rejeter" type="object" name="set_valide" attrs="{'invisible': [('progress_state', '=', 'valide')]}"></button> 
-        <button class="btn-primary"  string="Valider" type="object" name="set_valide" attrs="{'invisible': [('progress_state', '=', 'valide')]}"></button>                                
+        <button class="btn-danger"  string="Rejeter" type="object" name="set_valide" attrs="{'invisible': [('progress_state', '!=', 'attente')]}"></button> 
+        <button class="btn-primary"  string="Valider" type="object" name="set_valide" attrs="{'invisible': [('progress_state', '!=', 'attente')]}"></button>                                
     </header> 
         <sheet>
         <group>
